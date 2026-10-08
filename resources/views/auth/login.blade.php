@@ -15,26 +15,13 @@
 </head>
 <body>
 
-{{-- ═══════════════════════════════════════════════════════════════ --}}
-{{-- ANIMATED BACKGROUND LAYERS (no circles) --}}
-{{-- ═══════════════════════════════════════════════════════════════ --}}
-
-{{-- Soft aurora gradient --}}
 <div class="aurora-bg"></div>
-
-{{-- Holographic grid pattern --}}
 <div class="holo-grid"></div>
-
-{{-- Floating sparkles --}}
 <div id="sparkles-container"></div>
-
-{{-- ═══════════════════════════════════════════════════════════════ --}}
-{{-- MAIN CONTENT --}}
-{{-- ═══════════════════════════════════════════════════════════════ --}}
 
 <div class="auth-page" style="background: transparent;">
 
-    {{-- Floating decorative icons (no circles around them) --}}
+    {{-- ═══ Floating Decorative Icons ═══ --}}
     <div class="float-icon" style="top: 12%; left: 8%; animation-delay: 0s;">
         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5"/>
@@ -69,19 +56,19 @@
     {{-- ═══ Main Card Container ═══ --}}
     <div class="w-full max-w-md relative" style="z-index: 10;">
 
-        {{-- Brand with tight spacing --}}
-<div class="text-center mb-4 px-4 pt-1">
-    <div class="inline-flex items-center justify-center logo-float -mt-2" style="width: 140px; height: 140px;">
-        <img src="{{ asset('HPD Logo.png') }}"
-             alt="HPD Logo"
-             class="w-32 h-32 object-contain logo-glow">
-    </div>
+        {{-- Brand --}}
+        <div class="text-center mb-4 px-4 pt-1">
+            <div class="inline-flex items-center justify-center logo-float -mt-2" style="width: 140px; height: 140px;">
+                <img src="{{ asset('HPD Logo.png') }}"
+                     alt="HPD Logo"
+                     class="w-32 h-32 object-contain logo-glow">
+            </div>
 
-    <h1 class="text-4xl font-extrabold tracking-tight mb-1 -mt-2">
-        <span class="text-[#0f1419]">MyBooking</span><span class="holo-title">HPD</span>
-    </h1>
-    <p class="text-sm text-[#64748b] font-medium">Hospital Port Dickson Room Booking System</p>
-</div>
+            <h1 class="text-4xl font-extrabold tracking-tight mb-1 -mt-2">
+                <span class="text-[#0f1419]">MyBooking</span><span class="holo-title">HPD</span>
+            </h1>
+            <p class="text-sm text-[#64748b] font-medium">Hospital Port Dickson Room Booking System</p>
+        </div>
 
         {{-- ═══ Auth Card ═══ --}}
         <div class="holo-glow-border auth-card-entrance">
@@ -94,7 +81,7 @@
                 <div class="p-8">
                     {{-- Errors --}}
                     @if ($errors->any())
-                        <div class="mb-5 p-4 rounded-2xl bg-red-50/90 border border-red-200 backdrop-blur-sm flex items-start gap-3">
+                        <div class="mb-4 p-4 rounded-2xl bg-red-50/90 border border-red-200 backdrop-blur-sm flex items-start gap-3">
                             <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 border border-red-200 flex-shrink-0">
                                 <svg class="h-4 w-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
@@ -109,13 +96,13 @@
                     @endif
 
                     @if (session('status'))
-                        <div class="mb-5 p-4 rounded-2xl bg-emerald-50/90 border border-emerald-200 backdrop-blur-sm">
+                        <div class="mb-4 p-4 rounded-2xl bg-emerald-50/90 border border-emerald-200 backdrop-blur-sm">
                             <p class="text-xs text-emerald-700 font-medium">{{ session('status') }}</p>
                         </div>
                     @endif
 
                     @if (session('warning'))
-                        <div class="mb-5 p-4 rounded-2xl bg-amber-50/90 border border-amber-200 backdrop-blur-sm flex items-start gap-3">
+                        <div class="mb-4 p-4 rounded-2xl bg-amber-50/90 border border-amber-200 backdrop-blur-sm flex items-start gap-3">
                             <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 border border-amber-200 flex-shrink-0">
                                 <svg class="h-4 w-4 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
@@ -125,7 +112,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('login.post') }}" class="space-y-5">
+                    <form method="POST" action="{{ route('login.post') }}" class="space-y-4">
                         @csrf
 
                         <div>
@@ -174,9 +161,40 @@
                         <button type="submit" class="auth-btn mt-2">Sign In</button>
                     </form>
 
+                    {{-- ═══ View Calendar Button — TIGHT SPACING ═══ --}}
+                    <div class="mt-4 pt-4 border-t border-white/40">
+                        <a href="{{ route('public.calendar') }}" 
+                           class="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl 
+                                  bg-white/60 hover:bg-white/90 backdrop-blur-sm 
+                                  border border-white/60 hover:border-purple-500/40
+                                  text-sm font-bold text-[#475569] hover:text-purple-700
+                                  transition-all duration-300 group">
+                            <div class="flex h-8 w-8 items-center justify-center rounded-lg 
+                                        bg-gradient-to-br from-purple-500/15 to-indigo-500/10 
+                                        border border-purple-500/20
+                                        group-hover:from-purple-500 group-hover:to-indigo-500
+                                        group-hover:border-purple-500/50 transition-all duration-300">
+                                <svg class="h-4 w-4 text-purple-600 group-hover:text-white transition-colors" 
+                                     fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5"/>
+                                </svg>
+                            </div>
+                            View Room Calendar
+                            <svg class="h-4 w-4 text-[#94a3b8] group-hover:text-purple-600 group-hover:translate-x-0.5 transition-all" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <p class="text-[11px] text-center text-[#94a3b8] mt-2 font-medium">
+                            Preview room availability without logging in
+                        </p>
+                    </div>
+
+                    {{-- ═══ Demo Credentials — TIGHT SPACING ═══ --}}
                     @if(app('env') != 'production')
-                        <div class="mt-7 pt-6 border-t border-white/40">
-                            <div class="flex items-center gap-2 mb-4">
+                        <div class="mt-4 pt-4 border-t border-white/40">
+                            <div class="flex items-center gap-2 mb-3">
                                 <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-purple-100/90 backdrop-blur-sm">
                                     <svg class="h-3.5 w-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -248,10 +266,10 @@
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
 
-            const size = Math.random() * 3 + 2;            // 2-5px small dots
+            const size = Math.random() * 3 + 2;
             const left = Math.random() * 100;
             const delay = Math.random() * 50;
-            const duration = Math.random() * 30 + 40;      // 40-70s slow
+            const duration = Math.random() * 30 + 40;
 
             sparkle.style.width = size + 'px';
             sparkle.style.height = size + 'px';
@@ -260,7 +278,6 @@
             sparkle.style.animationDelay = delay + 's';
             sparkle.style.animationDuration = duration + 's';
 
-            // Subtle colors, no glow
             const colors = [
                 'rgba(124, 58, 237, 0.7)',
                 'rgba(236, 72, 153, 0.6)',
