@@ -23,8 +23,13 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/mybooking-register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-});
 
+    // ⭐ NEW: Public Calendar (no login required)
+    Route::get('/public-calendar', [App\Http\Controllers\PublicCalendarController::class, 'index'])
+        ->name('public.calendar');
+    Route::get('/public-calendar/bookings', [App\Http\Controllers\PublicCalendarController::class, 'getBookings'])
+        ->name('public.calendar.bookings');
+});
 // ─────────────────────────────────────────────────────────────────────────────
 // EMAIL VERIFICATION ROUTES — Auth, but not yet verified
 // ─────────────────────────────────────────────────────────────────────────────
