@@ -11,7 +11,7 @@ class PublicCalendarController extends Controller
 {
     /**
      * Display the public calendar view (no authentication required).
-     */
+     */ 
     public function index(): View
     {
         // Get all active rooms (public view, show all)
