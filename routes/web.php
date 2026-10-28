@@ -24,11 +24,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/mybooking-register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-    // ⭐ NEW: Public Calendar (no login required)
-    Route::get('/public-calendar', [App\Http\Controllers\PublicCalendarController::class, 'index'])
-        ->name('public.calendar');
-    Route::get('/public-calendar/bookings', [App\Http\Controllers\PublicCalendarController::class, 'getBookings'])
-        ->name('public.calendar.bookings');
+    // ⭐ UPDATED: Guest Calendar (no login required)
+    Route::get('/guest-calendar', [App\Http\Controllers\GuestCalendarController::class, 'index'])
+        ->name('guest.calendar');
+    Route::get('/guest-calendar/bookings', [App\Http\Controllers\GuestCalendarController::class, 'getBookings'])
+        ->name('guest.calendar.bookings');
 });
 // ─────────────────────────────────────────────────────────────────────────────
 // EMAIL VERIFICATION ROUTES — Auth, but not yet verified
@@ -136,3 +136,8 @@ Route::middleware(['auth', 'is_super'])
 Route::get('/test-route', function () {
     dd('TESTING');
 })->middleware(['auth', 'is_super']);
+
+Route::get('/test-email', function () {
+    $booking = \App\Models\Booking::latest()->first();
+    return view('emails.new_booking', compact('booking'));
+});
