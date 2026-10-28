@@ -163,7 +163,7 @@
 
                     {{-- ═══ View Calendar Button — TIGHT SPACING ═══ --}}
                     <div class="mt-4 pt-4 border-t border-white/40">
-                        <a href="{{ route('public.calendar') }}" 
+                        <a href="{{ route('guest.calendar') }}" 
                            class="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl 
                                   bg-white/60 hover:bg-white/90 backdrop-blur-sm 
                                   border border-white/60 hover:border-purple-500/40
